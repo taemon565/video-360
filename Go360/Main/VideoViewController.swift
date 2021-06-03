@@ -35,8 +35,19 @@ class VideoViewController: GLKViewController {
   var videoPlayer: VideoPlayer?
   let motionManager = CMMotionManager()
   
-  private var rotationX: Float = 0.0
-  private var rotationY: Float = 0.0
+  private var rotationX: Float = 0.0 {
+    didSet {
+      print("rotationX \(rotationX)")
+    }
+  }
+  
+  private var rotationY: Float = 0.0 {
+    didSet {
+      print("rotationY \(rotationY)")
+    }
+  }
+  
+  
   @IBOutlet weak var startButton: UIButton!
   
   override func viewDidLoad() {
@@ -108,7 +119,7 @@ class VideoViewController: GLKViewController {
       motionManager.startGyroUpdates(to: OperationQueue.current!) { (data, error) in
         if let data = data {
           if data.rotationRate.y > 0.1 || data.rotationRate.y < -0.1 {
-              self.rotationX += -Float(data.rotationRate.y)/50
+              self.rotationX += Float(data.rotationRate.y)/50
           }
           if data.rotationRate.x > 0.1 || data.rotationRate.x < -0.1 {
               self.rotationY += -Float(data.rotationRate.x)/50

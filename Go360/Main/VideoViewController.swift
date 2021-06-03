@@ -108,7 +108,7 @@ class VideoViewController: GLKViewController {
       motionManager.startGyroUpdates(to: OperationQueue.current!) { (data, error) in
         if let data = data {
           if data.rotationRate.y > 0.1 || data.rotationRate.y < -0.1 {
-              self.rotationX += Float(data.rotationRate.y)/50
+              self.rotationX += -Float(data.rotationRate.y)/50
           }
           if data.rotationRate.x > 0.1 || data.rotationRate.x < -0.1 {
               self.rotationY += -Float(data.rotationRate.x)/50

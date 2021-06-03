@@ -35,19 +35,8 @@ class VideoViewController: GLKViewController {
   var videoPlayer: VideoPlayer?
   let motionManager = CMMotionManager()
   
-  private var rotationX: Float = 0.0 {
-    didSet {
-      print("rotationX \(rotationX)")
-    }
-  }
-  
-  private var rotationY: Float = 0.0 {
-    didSet {
-      print("rotationY \(rotationY)")
-    }
-  }
-  
-  
+  private var rotationX: Float = 0.0
+  private var rotationY: Float = 0.0
   @IBOutlet weak var startButton: UIButton!
   
   override func viewDidLoad() {
